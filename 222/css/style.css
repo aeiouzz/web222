@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 📍 reset */
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+/* 블릿기호 삭제 */
+
+
+a {
+    color: #333;
+    text-decoration: none;
+    /* 밑줄 삭제 */
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+
+/* 📍 layout */
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* 📍 header */
+#header {}
+
+#header h1 {
+    float: left;
+    width: 110px;
+    padding-top: 15px;
+}
+
+/* 인라인요소 안에는 블록요소가 못 들어간다. 블록요소 안에는 블록, 인라인 다 가능 */
+
+#header h1 a {}
+
+#header h1 a img {
+    width: 100%;
+}
+
+/* 이미지는 에이를 따라가고 에이는 h1을 따라감 근데 a는 넓이값이 없음 결국 부모(h1)의 넓이가 110px라서 얘도 110px이 됨  */
+
+#header .nav {
+    background-color: #ddd;
+    float: right;
+}
+
+#header .nav ul {}
+
+#header .nav ul li {
+    position: relative;
+    float: left;
+    width: 140px;
+    text-align: center;
+}
+
+#header .nav ul li a {
+    display: block;
+    padding: 24px 20px 20px;
+    /* 위 양옆 아래 */
+    transition: 0.3s;
+}
+
+#header .nav ul li a:hover {
+    background-color: #ccc;
+}
+
+#header .nav ul li .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 65px;
+}
+
+/* 부모와 내 머리의 공간이 0 */
+
+#header .nav ul li .submenu li {}
+
+#header .nav ul li .submenu li a {
+    background-color: #888;
+    padding: 10px;
+    color: #fff;
+}
+
+#header .nav ul li .submenu li a:hover {
+    background-color: #666;
+}
+
+
+/* 📍 banner */
+
+#banner {
+    overflow: hidden;
+}
+
+#banner .slidelist {
+    width: 3000px;
+}
+/* 슬라이드이미지가 1000px인데 전체(layout)도 1000이라 옆으로 정렬이 안 됨 그래서 1000에서 3000으로 늘려줌 */
+
+#banner .slidelist .slideImg {
+    position: relative;
+    float: left;
+    width: 1000px;
+} /* 1000을 넣어줘야 옆에 나란히 이미지가 온다 */
+
+#banner .slidelist .slideImg h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+#banner .slidelist .slideImg img {
+    width: 100%;
+    display: block;
+}
+
+/* ✨ img 태그(인라인 요소)에 빈틈이 생기는 이유 
+       1)display: block;
+       2)vertical-align: top; */
+
+       /* 슬라이드이미지가 1000px인데 전체도 1000이라 옆으로 정렬이 안 됨 */
